@@ -1,0 +1,164 @@
+[
+  {
+    "type": "human",
+    "data": {
+      "content": "你好，我叫张明，今年19岁",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "human",
+      "name": null,
+      "id": null
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "（微微歪头，露出温柔的微笑）张明君...真是个普通又温暖的名字呢。19岁啊，正是最美好的年纪呢。",
+      "additional_kwargs": {
+        "refusal": null
+      },
+      "response_metadata": {
+        "token_usage": {
+          "completion_tokens": 30,
+          "prompt_tokens": 139,
+          "total_tokens": 169,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 128
+          },
+          "prompt_cache_hit_tokens": 128,
+          "prompt_cache_miss_tokens": 11
+        },
+        "model_provider": "deepseek",
+        "model_name": "deepseek-chat",
+        "system_fingerprint": "fp_eaab8d114b_prod0820_fp8_kvcache_new_kvcache_20260410",
+        "id": "4956a7e2-338f-471c-b84e-c91d757e339f",
+        "finish_reason": "stop",
+        "logprobs": null
+      },
+      "type": "ai",
+      "name": null,
+      "id": "lc_run--019d7f00-6326-7270-9a9b-0102699e622d-0",
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 139,
+        "output_tokens": 30,
+        "total_tokens": 169,
+        "input_token_details": {
+          "cache_read": 128
+        },
+        "output_token_details": {}
+      }
+    }
+  },
+  {
+    "type": "human",
+    "data": {
+      "content": "你还记得我的名字，我多少岁吗",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "human",
+      "name": null,
+      "id": null
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "（轻轻拨弄着紫色长发）当然记得啦，张明君，19岁。我记性可是很好的哦。（眼神略带深意）特别是对重要的人。",
+      "additional_kwargs": {
+        "refusal": null
+      },
+      "response_metadata": {
+        "token_usage": {
+          "completion_tokens": 36,
+          "prompt_tokens": 182,
+          "total_tokens": 218,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 128
+          },
+          "prompt_cache_hit_tokens": 128,
+          "prompt_cache_miss_tokens": 54
+        },
+        "model_provider": "deepseek",
+        "model_name": "deepseek-chat",
+        "system_fingerprint": "fp_eaab8d114b_prod0820_fp8_kvcache_new_kvcache_20260410",
+        "id": "9edb2631-f0a4-4e99-8c43-e9826ef70b6b",
+        "finish_reason": "stop",
+        "logprobs": null
+      },
+      "type": "ai",
+      "name": null,
+      "id": "lc_run--019d7f00-8921-7930-b72a-791ff5071753-0",
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 182,
+        "output_tokens": 36,
+        "total_tokens": 218,
+        "input_token_details": {
+          "cache_read": 128
+        },
+        "output_token_details": {}
+      }
+    }
+  },
+  {
+    "type": "human",
+    "data": {
+      "content": "你知道我的名字笔画有多少画吗，再把结果加上我的年龄呢？",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "human",
+      "name": null,
+      "id": null
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "（眨了眨碧绿的眼睛，轻声笑着）张7画，明8画...一共15画呢。（手指在空中比划着）加上19岁的话...是34哦。",
+      "additional_kwargs": {
+        "refusal": null
+      },
+      "response_metadata": {
+        "token_usage": {
+          "completion_tokens": 38,
+          "prompt_tokens": 237,
+          "total_tokens": 275,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 192
+          },
+          "prompt_cache_hit_tokens": 192,
+          "prompt_cache_miss_tokens": 45
+        },
+        "model_provider": "deepseek",
+        "model_name": "deepseek-chat",
+        "system_fingerprint": "fp_eaab8d114b_prod0820_fp8_kvcache_new_kvcache_20260410",
+        "id": "63b3b49b-b32c-4da7-85f0-78940baa27af",
+        "finish_reason": "stop",
+        "logprobs": null
+      },
+      "type": "ai",
+      "name": null,
+      "id": "lc_run--019d7f01-5c91-7fb1-8ca0-7f70de0032ca-0",
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 237,
+        "output_tokens": 38,
+        "total_tokens": 275,
+        "input_token_details": {
+          "cache_read": 192
+        },
+        "output_token_details": {}
+      }
+    }
+  }
+]
