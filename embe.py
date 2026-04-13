@@ -1,33 +1,86 @@
 from langchain_community.embeddings import DashScopeEmbeddings
 from dotenv import load_dotenv
 import os
+from langchain_community.document_loaders import CSVLoader
+from langchain_core.vectorstores import InMemoryVectorStore #向量对象(内存)
+
+import asyncio
+
+#Chroma 轻量级向量数据库
+from langchain_chroma import Chroma
 
 # 加载环境变量
 load_dotenv()
 
-embeddings = DashScopeEmbeddings()
+embeddings_model = DashScopeEmbeddings()
 
-def emb_query(text):
-  return embeddings.embed_query(text)
 
-def emb_documents(text):
-  return embeddings.embed_documents(text)
+csv_loader = CSVLoader(
+        file_path='dcm/data/info.csv',
+        encoding='utf-8',
+        source_column='source' #指定本条数据来源（元数据）
+    )
+
+csv_doc = csv_loader.load()
+
+
+def InMemorySearch():
+
+    vector_store_InMemory = InMemoryVectorStore(
+        embedding=embeddings_model
+        )
+
+    #添加文档到向量存储，并指定id
+    vector_store_InMemory.add_documents(
+        documents=csv_doc,           #被添加的文档 class<list[Document..]>
+        ids=[f"id{i+1}" for i in range(len(csv_doc))]                       #给添加的文档提供id（字符串） class<list[str..]>          
+    )
+
+    #删除 传入[id1,id2...] (idx 是字符串)
+    vector_store_InMemory.delete(['id1','id2'])
+
+    #检索
+    res1 = vector_store_InMemory.similarity_search(
+        "Python是不是简单易学？",
+        k=1                        #检索结果个数
+    )
+
+    print(res1)
+    pass
+
+
+def InChromaSearch():
+
+    file_id = 1
+    vector_store_InMemory = Chroma(
+        collection_name='test',     #数据库表名
+        embedding_function=embeddings_model,
+        persist_directory=f'./vectordb{file_id}'    #数据库存放文件夹目录
+    )
+
+    # 添加文档到向量存储，并指定id
+    vector_store_InMemory.add_documents(
+        documents=csv_doc,           #被添加的文档 class<list[Document..]>
+        ids=[f"id{i+1}" for i in range(len(csv_doc))]                       #给添加的文档提供id（字符串） class<list[str..]>          
+    )
+
+    # 删除 传入[id1,id2...] (idx 是字符串)
+    vector_store_InMemory.delete(['id1','id2'])
+
+    #检索
+    res1 = vector_store_InMemory.similarity_search(
+        "Python是不是简单易学？",
+        k=1,                        #检索结果个数
+        filter={"source":"黑马程序员"}  #过滤检索结果 指定检索为 {"source":"黑马程序员"}
+    )
+
+    print(res1)
+    pass
+
 
 
 if __name__ == '__main__':
-# ------------------- 1. 单文本生成向量 -------------------
-  query = "LangChain如何调用嵌入模型？"
-  query_embedding = embeddings.embed_query(query)
-  print(f'type: {type(query_embedding)}')
-  print(f"向量维度：{len(query_embedding)}")
-  print(f"向量前5个值：{query_embedding[:5]}")
-
-  # ------------------- 2. 批量文本生成向量 -------------------
-  texts = [
-      "DeepSeek提供文本嵌入API",
-      "LangChain是大模型应用开发框架",
-      "嵌入模型用于生成语义向量"
-  ]
-  text_embeddings = embeddings.embed_documents(texts)
-  print(f'type: {type(text_embeddings)}')
-  print(f"批量生成向量数量：{len(text_embeddings)}")
+    InMemorySearch()
+    print()
+    InChromaSearch()
+    pass

@@ -24,7 +24,7 @@ class FileChatMessageHistory(BaseChatMessageHistory):
       new_messages.append(temp)
     with open(self.file_path,'w',encoding='utf-8') as file:
       json.dump(new_messages,file, ensure_ascii=False, indent=2)
-  
+    
   # @property
   # def messages(self) -> None | list[Any] | list[BaseMessage]:
   #   try:
